@@ -42,3 +42,40 @@ function calcularCuadrado() {
 
 // Ejecutar ejercicio 2
 calcularCuadrado();
+
+
+console.log("\n=== EJERCICIO 3: SALUDO INTERACTIVO ===");
+
+function saludarUsuario() {
+    // Usar prompt para pedir el nombre (en navegador)
+    // Para Node.js o consola, usaremos un nombre predefinido
+    let nombre;
+    
+    if (typeof prompt !== 'undefined') {
+        // En navegador
+        nombre = prompt("Escribe tu nombre:");
+    } else {
+        // En Node.js o consola (simulación)
+        nombre = "Usuario"; // Puedes cambiar este valor
+        console.log("Simulando prompt: Escribe tu nombre");
+        console.log("Respuesta simulada: " + nombre);
+    }
+    
+    if (nombre && nombre.trim() !== "") {
+        const saludo = `Hola ${nombre.trim()}`;
+        console.log(saludo);
+        
+        // Si estamos en navegador, también mostrarlo en alert
+        if (typeof alert !== 'undefined') {
+            alert(saludo);
+        }
+        
+        return saludo;
+    } else {
+        console.log("No se ingresó un nombre válido");
+        return null;
+    }
+}
+
+// Ejecutar ejercicio 3
+saludarUsuario();
