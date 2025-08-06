@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios DOM - JavaScript</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="ejercicios-dom.css">
+</head>
+<body>
+    <div class="container py-5">
+        <!-- ENCABEZADO PRINCIPAL -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 text-primary mb-3">🌐 Ejercicios DOM</h1>
+            <p class="lead">Manipulación del Document Object Model con JavaScript</p>
+        </div>
+
+        <!-- EJERCICIO 9: Cambiar texto -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <h3 class="mb-0">🔤 Ejercicio 9: Cambiar Texto del Título</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Objetivo:</strong> Cambiar el texto "Hola Mundo" por "Hola Mundo con Javascript" al hacer clic en el botón.</p>
+                
+                <!-- Título que se va a cambiar -->
+                <h2 id="titulo" class="text-center my-4">Hola Mundo</h2>
+                
+                <!-- Botón para cambiar el texto -->
+                <div class="text-center">
+                    <button type="button" class="btn btn-custom" onclick="cambiarTitulo()">
+                        Cambiar Texto
+                    </button>
+                </div>
+                
+                <!-- Área de resultado -->
+                <div class="result-area">
+                    <h6><strong>Código JavaScript:</strong></h6>
+                    <div class="code-block">
+function cambiarTitulo() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('titulo').textContent = 'Hola Mundo con Javascript';<br>
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EJERCICIO 10: Cambiar color y centrar -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <h3 class="mb-0">🎨 Ejercicio 10: Cambiar Color y Centrar</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Objetivo:</strong> Cambiar el color del título de negro a rojo y centrarlo.</p>
+                
+                <!-- Título que se va a modificar -->
+                <h2 id="titulo2" class="my-4">Título a Modificar</h2>
+                
+                <!-- Botón para cambiar estilo -->
+                <div class="text-center">
+                    <button type="button" class="btn btn-custom" onclick="cambiarEstilo()">
+                        Cambiar Color y Centrar
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary ms-2" onclick="resetearEstilo()">
+                        Resetear
+                    </button>
+                </div>
+                
+                <!-- Área de resultado -->
+                <div class="result-area">
+                    <h6><strong>Código JavaScript:</strong></h6>
+                    <div class="code-block">
+function cambiarEstilo() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const titulo = document.getElementById('titulo2');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;titulo.style.color = 'red';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;titulo.style.textAlign = 'center';<br>
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EJERCICIO 11: Crear div dinámico -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <h3 class="mb-0">➕ Ejercicio 11: Crear Div Dinámico</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Objetivo:</strong> Crear un nuevo div con texto blanco, fondo rojo y texto centrado.</p>
+                
+                <!-- Botones para crear y limpiar divs -->
+                <div class="text-center mb-4">
+                    <button type="button" class="btn btn-custom" onclick="creaDiv()">
+                        Crear Div
+                    </button>
+                    <button type="button" class="btn btn-outline-danger ms-2" onclick="limpiarDivs()">
+                        Limpiar Todos
+                    </button>
+                    <button type="button" class="btn btn-outline-info ms-2" onclick="contarDivs()">
+                        Contar Divs
+                    </button>
+                </div>
+                
+                <!-- Contenedor donde se crearán los divs -->
+                <div id="contenedor-divs" class="border rounded p-3 bg-light">
+                    <p class="text-muted text-center m-0"><em>Los divs creados aparecerán aquí...</em></p>
+                </div>
+                
+                <!-- Contador de divs -->
+                <div class="mt-3">
+                    <span class="badge bg-info" id="contador-divs">Divs creados: 0</span>
+                </div>
+                
+                <!-- Área de resultado -->
+                <div class="result-area">
+                    <h6><strong>Código JavaScript:</strong></h6>
+                    <div class="code-block">
+function creaDiv() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const nuevoDiv = document.createElement('div');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nuevoDiv.className = 'dynamic-div';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nuevoDiv.textContent = 'Javascript permite crear páginas dinámicas';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('contenedor-divs').appendChild(nuevoDiv);<br>
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EJERCICIO BONUS: Demostración completa -->
+        <div class="exercise-card">
+            <div class="exercise-header">
+                <h3 class="mb-0">🎯 Ejercicio Bonus: Demostración Completa</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Funcionalidades adicionales:</strong> Combinación de todos los ejercicios con efectos adicionales.</p>
+                
+                <!-- Título interactivo -->
+                <h2 id="titulo-bonus" class="text-center my-4 interactive-title">Título Interactivo</h2>
+                
+                <!-- Controles -->
+                <div class="text-center mb-4">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-primary" onclick="animarTitulo()">
+                            Animar Título
+                        </button>
+                        <button type="button" class="btn btn-outline-success" onclick="cambiarColorAleatorio()">
+                            Color Aleatorio
+                        </button>
+                        <button type="button" class="btn btn-outline-warning" onclick="efectoPulso()">
+                            Efecto Pulso
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Área para elementos dinámicos -->
+                <div id="area-dinamica" class="border rounded p-3 bg-light min-height-100">
+                    <p class="text-muted text-center m-0"><em>Área para elementos dinámicos...</em></p>
+                </div>
+                
+                <!-- Información del sistema -->
+                <div class="mt-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="info-box">
+                                <strong>Navegador:</strong>
+                                <span id="info-navegador">-</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-box">
+                                <strong>Fecha/Hora:</strong>
+                                <span id="info-fecha">-</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-box">
+                                <strong>Elementos DOM:</strong>
+                                <span id="info-elementos">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="text-center mt-5 py-4 border-top">
+            <p class="text-muted mb-0">
+                🚀 Ejercicios DOM con JavaScript - 
+                <span class="highlight">Manipulación dinámica del DOM</span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript personalizado -->
+    <script src="ejercicios-dom.js"></script>
+</body>
+</html>
