@@ -174,5 +174,26 @@ function calcularConsumo() {
 // Ejecucion de ejercicio 5
 calcularConsumo();
 
-//======================================================
 //Ejercicio 6:
+// Función para ejecutar ejercicio específico desde HTML
+function ejecutarEjercicio(numero) {
+    switch(numero) {
+        case 1:
+            return calcularPrecioConIva();
+        case 2:
+            return calcularCuadrado();
+        case 3:
+            return saludarUsuario();
+        case 4:
+            return calcularPromedio();
+        case 5:
+            return calcularConsumo();
+        default:
+            console.log("Número de ejercicio inválido");
+            return null;
+    }
+}
+
+console.log("\n🎯 Para usar en HTML, llama a ejecutarEjercicio(numero) o ejecutarTodosLosEjercicios()");
+
+// ejecutar ejercicio 6
