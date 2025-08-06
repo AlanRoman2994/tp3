@@ -1,0 +1,515 @@
+/**
+ * EJERCICIOS DOM - ESTILOS CSS
+ * Estilos para la manipulación del DOM con JavaScript
+ */
+
+/* =================================================================
+   VARIABLES CSS
+   ================================================================= */
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #f093fb;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --border-radius: 10px;
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.2);
+    --transition-smooth: all 0.3s ease;
+}
+
+/* =================================================================
+   ESTILOS GENERALES
+   ================================================================= */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* =================================================================
+   CARDS DE EJERCICIOS
+   ================================================================= */
+.exercise-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    margin-bottom: 2rem;
+    transition: var(--transition-smooth);
+    overflow: hidden;
+    border: none;
+}
+
+.exercise-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.exercise-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.exercise-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.exercise-card:hover .exercise-header::before {
+    left: 100%;
+}
+
+.exercise-header h3 {
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* =================================================================
+   BOTONES PERSONALIZADOS
+   ================================================================= */
+.btn-custom {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-custom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+    color: white;
+}
+
+.btn-custom:hover::before {
+    left: 100%;
+}
+
+.btn-custom:active {
+    transform: translateY(-1px);
+}
+
+/* =================================================================
+   TÍTULOS Y ELEMENTOS INTERACTIVOS
+   ================================================================= */
+#titulo {
+    color: #333;
+    font-weight: bold;
+    transition: var(--transition-smooth);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#titulo:hover {
+    transform: scale(1.05);
+}
+
+#titulo2 {
+    color: #333;
+    font-weight: bold;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+#titulo2:hover {
+    transform: scale(1.02);
+}
+
+.interactive-title {
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    position: relative;
+}
+
+.interactive-title:hover {
+    transform: scale(1.05);
+}
+
+/* =================================================================
+   DIVS DINÁMICOS
+   ================================================================= */
+.dynamic-div {
+    color: white;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    text-align: center;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: var(--shadow-medium);
+    animation: slideInFromRight 0.6s ease-out;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.dynamic-div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.dynamic-div:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-heavy);
+}
+
+.dynamic-div:hover::before {
+    transform: translateX(100%);
+}
+
+/* Animación de entrada para divs dinámicos */
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* =================================================================
+   CONTENEDORES Y ÁREAS
+   ================================================================= */
+#contenedor-divs {
+    min-height: 100px;
+    border: 2px dashed #dee2e6;
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+#contenedor-divs:hover {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+#contenedor-divs.has-content {
+    border-style: solid;
+    border-color: var(--primary-color);
+}
+
+#area-dinamica {
+    min-height: 120px;
+    border: 2px dashed #dee2e6;
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    transition: var(--transition-smooth);
+}
+
+.min-height-100 {
+    min-height: 100px;
+}
+
+/* =================================================================
+   ÁREAS DE RESULTADO Y CÓDIGO
+   ================================================================= */
+.result-area {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    position: relative;
+}
+
+.result-area::before {
+    content: '💡';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+}
+
+.code-block {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    color: #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid #4a5568;
+    position: relative;
+}
+
+.code-block::before {
+    content: 'JavaScript';
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* =================================================================
+   BADGES Y CONTADORES
+   ================================================================= */
+#contador-divs {
+    background: linear-gradient(135deg, var(--info-color) 0%, #138496 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+#contador-divs:hover {
+    transform: scale(1.05);
+}
+
+/* =================================================================
+   INFORMACIÓN DEL SISTEMA
+   ================================================================= */
+.info-box {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 1rem;
+    transition: var(--transition-smooth);
+    border-left: 4px solid var(--primary-color);
+}
+
+.info-box:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.info-box strong {
+    color: var(--dark-color);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-box span {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* =================================================================
+   EFECTOS ESPECIALES
+   ================================================================= */
+.highlight {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto de pulso */
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Efecto de rotación */
+.rotate {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Efecto de desvanecimiento */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Efecto de rebote */
+.bounce {
+    animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+/* Efecto de temblor */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* =================================================================
+   RESPONSIVE DESIGN
+   ================================================================= */
+@media (max-width: 768px) {
+    .exercise-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .exercise-header {
+        padding: 1rem;
+    }
+    
+    .btn-custom {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .code-block {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+    
+    .info-box {
+        text-align: center;
+    }
+    
+    #titulo, #titulo2, .interactive-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .exercise-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .btn-group .btn {
+        margin-bottom: 0.5rem;
+    }
+    
+    .dynamic-div {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+}
+
+/* =================================================================
+   ESTADOS ESPECIALES
+   ================================================================= */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estados de éxito y error */
+.success {
+    border-color: var(--success-color) !important;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%) !important;
+}
+
+.error {
+    border-color: var(--danger-color) !important;
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%) !important;
+}
+
+/* =================================================================
+   UTILIDADES ADICIONALES
+   ================================================================= */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.border-gradient {
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) 1;
+}
+
+.shadow-custom {
+    box-shadow: var(--shadow-medium);
+}
