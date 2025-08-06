@@ -171,7 +171,7 @@ function calcularConsumo() {
     };
 }
 
-// Ejecucion de ejercicio 5
+//  Fin del Ejecucion de ejercicio 5
 calcularConsumo();
 
 //Ejercicio 6:
